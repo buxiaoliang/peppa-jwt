@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':peppa-dao')
+    compile("org.springframework.boot:spring-boot-starter-security")
+}

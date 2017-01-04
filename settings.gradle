@@ -1,0 +1,5 @@
+rootProject.name = 'peppa-jwt'
+include 'peppa-dao'
+include 'peppa-service'
+include 'peppa-web'
+
