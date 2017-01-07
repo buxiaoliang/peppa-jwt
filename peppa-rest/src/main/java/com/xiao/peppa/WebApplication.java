@@ -1,6 +1,7 @@
 package com.xiao.peppa;
 
 import com.xiao.peppa.model.Role;
+import com.xiao.peppa.model.RoleName;
 import com.xiao.peppa.model.User;
 import com.xiao.peppa.repository.RoleRepository;
 import com.xiao.peppa.repository.UserRepository;
@@ -36,15 +37,15 @@ public class WebApplication extends SpringBootServletInitializer {
     CommandLineRunner init() {
         return (evt) -> {
             Role role1 = new Role();
-            role1.setName("ROLE_USER");
+            role1.setName(RoleName.ROLE_USER);
             Role role2 = new Role();
-            role2.setName("ROLE_ADMIN");
+            role2.setName(RoleName.ROLE_ADMIN);
 
-            if (roleRepository.findByName("ROLE_USER") == null) {
+            if (roleRepository.findByName(RoleName.ROLE_USER) == null) {
                 roleRepository.save(role1);
             }
 
-            if (roleRepository.findByName("ROLE_ADMIN") == null) {
+            if (roleRepository.findByName(RoleName.ROLE_ADMIN) == null) {
                 roleRepository.save(role2);
             }
 

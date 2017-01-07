@@ -58,7 +58,7 @@ public class User {
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
-
+    @NotNull
     public Boolean getEnabled() {
         return enabled;
     }
@@ -66,7 +66,7 @@ public class User {
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
-
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getResetDate() {
         return resetDate;
     }

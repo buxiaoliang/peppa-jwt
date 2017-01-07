@@ -9,7 +9,7 @@ import java.util.Set;
 public class Role {
 
     private Long id;
-    private String name;
+    private RoleName name;
     private Set<User> users;
 
     @Id
@@ -22,11 +22,12 @@ public class Role {
         this.id = id;
     }
     @NotNull
-    public String getName() {
+    @Enumerated(EnumType.STRING)
+    public RoleName getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(RoleName name) {
         this.name = name;
     }
 
