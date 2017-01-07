@@ -2,16 +2,19 @@ package com.xiao.peppa.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "jwt_user")
 public class User {
     private Long id;
     private String username;
     private String email;
     private String password;
     private String passwordConfirm;
+    private Boolean enabled;
+    private Date resetDate;
     private Set<Role> roles;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,7 +59,23 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    @ManyToMany
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Date getResetDate() {
+        return resetDate;
+    }
+
+    public void setResetDate(Date resetDate) {
+        this.resetDate = resetDate;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     public Set<Role> getRoles() {
         return roles;

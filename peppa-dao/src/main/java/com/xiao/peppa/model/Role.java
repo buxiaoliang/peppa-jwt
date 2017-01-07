@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-@Table(name = "role")
+@Table(name = "jwt_role")
 public class Role {
 
     private Long id;
@@ -30,7 +30,7 @@ public class Role {
         this.name = name;
     }
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     public Set<User> getUsers() {
         return users;
     }
